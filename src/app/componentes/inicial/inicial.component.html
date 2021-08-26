@@ -9,7 +9,7 @@
         <img 
         src="assets/imagens/gol-quadrado.jpg" 
         
-        class="d-block w-100" 
+        class="d-block w-100 img-fluid w-50" 
         alt="gol-quadrado"
         
         
@@ -18,7 +18,7 @@
       <div class="carousel-item">
         <img 
         src="assets/imagens/gol-quadrado2.jpg"  
-        class="d-block w-100" 
+        class="d-block w-100 img-fluid w-50" 
         alt="gol-quadrado2"
         
         >
@@ -26,7 +26,7 @@
       <div class="carousel-item">
         <img 
         src="assets/imagens/gol-quadrado3.jpg"  
-        class="d-block w-100" 
+        class="d-block w-100 img-fluid w-50" 
         alt="gol-quadrado3"
        
         >
@@ -50,8 +50,8 @@
 <br />
 <div class="row row-cols-1 row-cols-md-3 g-4">
   <div class="col" *ngFor="let produto of produtos">
-    <div class="card h-100">
-      <img src="assets/imagens/{{produto.fotos[0]}}" class="card-img-top" [alt]="produto.nome" />
+    <div class="card h-100" style="margin: 15px">
+      <img src="assets/imagens/{{produto.fotos[0]}}" class="card-img-top " [alt]="produto.nome" />
       <div class="card-body">
         <h5 class="card-title">{{produto.nome}}</h5>
         <p class="card-text">
@@ -70,8 +70,12 @@
         
             
             &nbsp;
-            <button type="button" class="btn btn-outline-primary">
-              <i class="bi bi-cart"></i> Add
+            <button 
+            type="button" 
+            class="btn btn-outline-primary"
+            (click)="adicionarCarrinho(produto)">
+              <i 
+              class="bi bi-cart"></i> Add
             </button>
         </p>
     
@@ -82,4 +86,5 @@
   
 
   
+  </div>
 </div>
