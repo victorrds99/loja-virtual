@@ -1,3 +1,4 @@
+import { Produto } from './../../models/produto.model';
 import { CarrinhoService } from './../../servicos/carrinho.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -17,8 +18,14 @@ export class CarrinhoComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  finalizarCompra(){
+  
 
+  removerCarrinho(id: number){
+    this.carrinhoService.remover(id);
+  }
+  
+  adicionarCarrinho(produto: Produto){
+    this.carrinhoService.adicionar(produto);
   }
 
   get itens() {
@@ -28,4 +35,6 @@ export class CarrinhoComponent implements OnInit {
   get total() {
     return this.carrinhoService.total;
   }
+
+  
 }

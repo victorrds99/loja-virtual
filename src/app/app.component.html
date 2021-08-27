@@ -24,9 +24,21 @@
           class="dropdown-menu dropdown-menu-dark dropdown-menu-end"
           aria-labelledby="dropdownCarrinho"
         >
-          <li class="dropdown-item">R$100,00 - Produto 1</li>
-          <li class="dropdown-item">R$200,00 - Produto 3</li>
-          <li class="dropdown-item">R$150,00 - Produto 2</li>
+          <li class="dropdown-item" *ngIf="quantidade === 0">Carrinho vazio</li>
+          <li 
+          class="dropdown-item" 
+          *ngFor="let item of itens"
+          [routerLink]="['/produto/' + item.produto.id]"
+          >
+            {{ item.produto.preco | currency: "BRL" }} ({{ item.quantidade }}x)
+            - {{ item.produto.nome.substr(0, 20) }}... 
+        </li>
+        
+        <li *ngIf="quantidade > 0"><hr class="dropdown-divider" /></li>
+          <li class="dropdown-item" *ngIf="quantidade > 0" [routerLink]="['/carrinho']">
+            <strong>TOTAL: {{ total | currency: "BRL" }}</strong>
+          </li>
+
         </ul>
       </div>
     </form>
