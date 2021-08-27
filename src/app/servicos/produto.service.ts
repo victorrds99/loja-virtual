@@ -13,7 +13,11 @@ export class ProdutoService {
 
     new Produto(3, 'Gol Quadrado GT 1.6', 20000, ['gol-quadrado2.jpg'], this.getDescricao()),
 
-    new Produto(4, 'Gol Quadrado CL 1.0', 10000, ['gol-quadrado6.jpg'], this.getDescricao()) 
+    new Produto(4, 'Gol Quadrado CL 1.0', 10000, ['gol-quadrado6.jpg'], this.getDescricao()), 
+
+    new Produto(5, 'Gol Quadrado GT 1.6', 25000, ['gol-quadrado.jpg'], this.getDescricao()),
+
+    new Produto(6, 'Gol Quadrado GT 1.8', 35000, ['gol-quadrado5.jpg'], this.getDescricao()),
 
   ];
   /* 

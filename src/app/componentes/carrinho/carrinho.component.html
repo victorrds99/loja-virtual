@@ -11,19 +11,39 @@
           <td colspan="3">Carrinho vazio.</td>
         </tr>
 
-        <tr *ngFor="let item of itens">
-          <td class="td-img">
+        <tr *ngFor="let item of itens" >
+          <td class="td-img" [routerLink]="['/produto/' + item.produto.id]">
             <img
               src="assets/imagens/{{ item.produto.fotos[0] }}"
               class="card-img-top img-thumbnail"
               [alt]="item.produto.nome"
             />
           </td>
-          <td class="td-col">
+          <td class="td-col" [routerLink]="['/produto/' + item.produto.id]">
             {{ item.produto.nome }}
           </td>
           <td class="td-col td-preco">
             {{ item.quantidade }}x - {{ item.produto.preco | currency: "BRL" }}
+          
+
+            <button
+              type="button"
+              class="btn btn-sm btn-success"
+              (click)="adicionarCarrinho(item.produto)"
+            >
+              <i class="bi bi-plus-lg"></i>
+            </button>
+            &nbsp;
+            
+
+            <button
+            type="button"
+            class="btn btn-sm btn-danger"
+            (click)="removerCarrinho(item.produto.id)"
+          >
+            <i class="bi bi-trash"></i>
+        </button>
+          
           </td>
         </tr>
 
@@ -41,7 +61,7 @@
     <button
       type="button"
       class="btn btn-lg btn-success"
-      (click)="finalizarCompra()"
+      [routerLink]="['/checkout']"
     >
       <i class="bi bi-cart-check"></i> Finalizar compra
     </button>
