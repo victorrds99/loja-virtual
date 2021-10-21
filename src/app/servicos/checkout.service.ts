@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { retry, catchError } from 'rxjs/operators';
 
 
@@ -22,10 +22,14 @@ export class CheckoutService {
 
   constructor(private httpClient: HttpClient) { }
 
-  url = 'http://localhost:8080/api/produtos'; // api rest fake
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  }
 
+
+  url = 'http://localhost:8080/api/produtos'; 
   saveClient(cliente: Cliente): Observable<any> {
-    return this.httpClient.post<Cliente>(this.url, JSON.stringify(cliente))
+    return this.httpClient.post<Cliente>(this.url, JSON.stringify(cliente),this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
