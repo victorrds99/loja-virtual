@@ -27,7 +27,7 @@ export class CheckoutService {
   }
 
 
-  url = 'http://localhost:8080/api/produtos'; 
+  url = 'http://localhost:8080/api/clientes'; 
   saveClient(cliente: Cliente): Observable<any> {
     return this.httpClient.post<Cliente>(this.url, JSON.stringify(cliente),this.httpOptions)
       .pipe(

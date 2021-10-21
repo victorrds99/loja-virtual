@@ -29,7 +29,7 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  pagar() {
+  salvar() {
     const cliente = this.pegarValoresForm(); 
     this.checkout.saveClient(cliente).subscribe(() => {
       console.log('sucesso'); 
